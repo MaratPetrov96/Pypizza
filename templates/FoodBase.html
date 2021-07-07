@@ -1,0 +1,59 @@
+<html>
+<head>
+<style type='text/css'>
+.all{
+margin-left: 50px;
+margin-right: 50px;
+}
+nav{
+margin-left: 80px;
+margin-top: 30px;
+}
+.content{
+margin-top: 30px;
+}
+li {
+display: inline-block;
+color: black;
+font-size: 25px;
+margin-left: 50px;
+margin-bottom: 30px;
+}
+.one{
+display: inline-block;
+margin-left: 50px;
+font-size: 20px;
+}
+button{
+height:60px;
+border: 1px;
+background-color: #ff6047;
+color: white;
+font-size: 19px;
+}
+</style>
+<title>
+{% block title %}
+{% endblock %}
+</title>
+</head>
+<body>
+<div class='all' align='center'> 
+<nav>
+<li><a href='/'>Главная</a></li>
+{% for k in kinds %}
+<li><a href='/{{k.id}}'>{{k.name}}</a></li>
+{% endfor %}
+{% if not cur.is_authenticated %}
+<li><a href='/busket'>Корзина</a></li>
+{% else %}
+<li><a href='/admin'>Админка</a></li>
+{% endif %}
+</nav>
+<div class='content'>
+{% block body %}
+{% endblock %}
+</div>
+</div>
+</body>
+</html>

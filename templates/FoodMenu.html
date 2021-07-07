@@ -1,0 +1,17 @@
+{% extends 'FoodBase.html' %}
+{% block title %}
+{{k.name}}
+{% endblock %}
+{% block body %}
+{% for i in data %}
+<div class='one'>
+<img src='/food/{{i.picture}}' width='330' height ='250'>
+<p>{{i.name}}</p>
+<p>{{i.description}}</p>
+<span>{{i.price}} руб.</span>
+<form action='/{{i.id}}/add' method='POST'>
+<button>Добавить в корзину</button>
+</form>
+</div>
+{% endfor %}
+{% endblock %}
